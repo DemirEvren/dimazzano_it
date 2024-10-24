@@ -1,0 +1,163 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.kaushan-script-regular {
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4em;
+}
+
+/* Video Background */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Sends video behind the content */
+}
+
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+/* Content Styling */
+.container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the 'Coming Soon' text */
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 1; /* Brings content in front of the video */
+    padding: 20px;
+}
+
+nav {
+    /* Keep the logo centered */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.middle-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-content {
+    margin-top: auto; /* Pushes the bottom content to the bottom */
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.2em;
+}
+
+.subscribe-form {
+    margin-top: 20px;
+}
+
+.subscribe-form input[type="email"] {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.subscribe-form button {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.subscribe-form button:hover {
+    background-color: #ddd;
+}
+
+/* MEDIA QUERIES FOR MOBILE RESPONSIVENESS */
+@media screen and (max-width: 768px) {
+    .kaushan-script-regular {
+        font-size: 2.5em;
+    }
+
+    .content h1 {
+        font-size: 2em;
+    }
+
+    .content p {
+        font-size: 1em;
+    }
+
+    .subscribe-form input[type="email"] {
+        width: 250px;
+        padding: 8px;
+    }
+
+    .subscribe-form button {
+        padding: 8px 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .kaushan-script-regular {
+        font-size: 2em;
+    }
+
+    .content h1 {
+        font-size: 1.8em;
+    }
+
+    .content p {
+        font-size: 0.9em;
+    }
+
+    .subscribe-form input[type="email"] {
+        width: 200px;
+        padding: 6px;
+    }
+
+    .subscribe-form button {
+        padding: 6px 12px;
+    }
+}
