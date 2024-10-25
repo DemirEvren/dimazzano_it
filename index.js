@@ -2,16 +2,21 @@
 document.addEventListener("DOMContentLoaded", function() {
     const video = document.getElementById('background-video');
 
-    // Function to load the correct video based on screen size
+    // Function to detect if the user is on a mobile device
+    const isMobileDevice = () => {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        return (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i).test(userAgent);
+    };
+
+    // Function to load the correct video based on device type and screen width
     const lazyLoadVideo = () => {
-        const screenWidth = window.innerWidth;
         let videoSource = '';
 
-        // Set the video source based on screen width
-        if (screenWidth >= 769) {
-            videoSource = 'images/233749_small.mp4';  // Load desktop version
+        // If it's a mobile device and the screen is smaller than 768px, load the mobile video
+        if (isMobileDevice() && window.innerWidth <= 768) {
+            videoSource = 'images/dimazzano_updated.mp4';   // Mobile video
         } else {
-            videoSource = 'images/dimazzano.mp4';   // Load mobile version
+            videoSource = 'images/233749_small.mp4';  // Desktop video
         }
 
         video.setAttribute('autoplay', true);
