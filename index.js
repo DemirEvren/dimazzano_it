@@ -2,26 +2,39 @@
 document.addEventListener("DOMContentLoaded", function() {
     const video = document.getElementById('background-video');
 
+    // Function to load the correct video based on screen size
     const lazyLoadVideo = () => {
+        const screenWidth = window.innerWidth;
+        let videoSource = '';
+
+        // Set the video source based on screen width
+        if (screenWidth >= 769) {
+            videoSource = 'images/233749_small.mp4';  // Load desktop version
+        } else {
+            videoSource = 'images/dimazzano.mp4';   // Load mobile version
+        }
+
         video.setAttribute('autoplay', true);
-        video.src = 'images/233749_small.mp4'; // Set the video source when the page is fully loaded
-        video.load(); // Ensures the video starts playing once the source is set
+        video.src = videoSource; // Set the video source dynamically
+        video.load(); // Ensure the video starts playing once the source is set
+        video.play();
     };
 
-    // Check if IntersectionObserver is supported (modern browsers)
+    // Check if IntersectionObserver is supported (for lazy loading)
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    lazyLoadVideo();
-                    observer.disconnect(); // No need to observe once the video is loaded
+                    lazyLoadVideo(); // Load video when it becomes visible
+                    observer.disconnect(); // Stop observing once the video is loaded
                 }
             });
         });
-        observer.observe(video);
+
+        observer.observe(video); // Observe the video element
     } else {
-        // Fallback for older browsers
-        lazyLoadVideo();
+        // Fallback for browsers that don't support IntersectionObserver
+        lazyLoadVideo(); // Just load the video immediately
     }
 });
 
