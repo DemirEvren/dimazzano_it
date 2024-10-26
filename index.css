@@ -18,6 +18,14 @@ body, html {
     font-size: 4em;
 }
 
+
+.playwrite-gb-s {
+  font-family: "Playwrite GB S", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+}
 /* Video Background */
 .video-background {
     position: absolute;
