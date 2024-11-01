@@ -48,3 +48,45 @@ document.querySelector('.subscribe-form').addEventListener('submit', function(ev
     event.preventDefault();
     alert('You have successfully subscribed!');
 });
+
+
+// Select the text element
+const comingSoonText = document.getElementById('coming-soon-text');
+
+// Define the text options
+const originalText = "Coming Soon";
+const newText = "In Arrivo";
+
+function startTextFadeSequence() {
+    // Step 1: Fade out the original text
+    comingSoonText.classList.add('fade-out');
+    
+    setTimeout(() => {
+        // Step 2: Change to new text and fade in
+        comingSoonText.textContent = newText;
+        comingSoonText.classList.remove('fade-out');
+        comingSoonText.classList.add('fade-in');
+    }, 1000); // 1-second delay to match the fade-out effect
+
+    setTimeout(() => {
+        // Step 3: Fade out the new text
+        comingSoonText.classList.remove('fade-in');
+        comingSoonText.classList.add('fade-out');
+    }, 3000); // 2 seconds after showing new text
+
+    setTimeout(() => {
+        // Step 4: Change back to the original text and fade in
+        comingSoonText.textContent = originalText;
+        comingSoonText.classList.remove('fade-out');
+        comingSoonText.classList.add('fade-in');
+    }, 4000); // 1 second after fading out the new text
+}
+
+// Run the text fade sequence in a loop every 6 seconds
+setInterval(startTextFadeSequence, 6000);
+
+window.addEventListener("load", function () {
+    const loadingSpinner = document.getElementById('loading-spinner');
+    loadingSpinner.style.display = 'none';
+});
+

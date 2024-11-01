@@ -13,6 +13,12 @@
 </head>
 <body>
 
+     <!-- Loading Spinner -->
+     <div id="loading-spinner" class="d-flex justify-content-center align-items-center position-fixed w-100 h-100" style="background-color: rgba(255, 255, 255, 0.8); z-index: 1050;">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
     <div class="video-background">
         <video id="background-video" autoplay muted loop playsinline poster="images/mobile-fallback.jpg">
             <!-- Desktop Version: Loaded for screens larger than 768px -->
@@ -30,10 +36,10 @@
             <div class="kaushan-script-regular">Agriturismo Dimazzano</div>
         </nav>
 
-        <div class="content">
-            <div class="middle-content playwrite-gb-s">
-                <h1>Coming Soon</h1>
-            </div>
+        <div class="middle-content playwrite-gb-s">
+            <h1 id="coming-soon-text">Coming Soon</h1>
+        </div>
+        
 
             <div class="bottom-content">
                 <p>Subscribe</p>
